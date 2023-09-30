@@ -16,8 +16,11 @@ def merge_sort(numbers: list[int]) -> list[int]:
     right_index = 0
     numbers_index = 0
 
-    while (left_index < len(left) and right_index < len(right)):
-        if (left[left_index] <= right[right_index]):
+    length_left = len(left)
+    length_right = len(right)
+
+    while left_index < length_left and right_index < length_right:
+        if left[left_index] <= right[right_index]:
             numbers[numbers_index] = left[left_index]
             left_index += 1
         else:
@@ -25,12 +28,12 @@ def merge_sort(numbers: list[int]) -> list[int]:
             right_index += 1
         numbers_index += 1
 
-    while left_index < len(left):
+    while left_index < length_left:
         numbers[numbers_index] = left[left_index]
         left_index += 1
         numbers_index += 1
 
-    while right_index < len(right):
+    while right_index < length_right:
         numbers[numbers_index] = right[right_index]
         right_index += 1
         numbers_index += 1

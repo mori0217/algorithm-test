@@ -12,13 +12,14 @@ NUM_ALPHABET_MAPPING = {
 }
 
 
-def phone_mnemonic_v1(phone_number: str) -> list[str]:
-    phone_number = [int(s) for s in phone_number.replace("-", "")]
+def phone_mnemonic_v1(phone_number_str: str) -> list[str]:
+    phone_number: list[int] = [int(s) for s in phone_number_str.replace("-", "")]
     result = []
-    tmp = [""] * len(phone_number)
+    length = len(phone_number)
+    tmp = [""] * length
 
     def find_candidate(index: int = 0) -> None:
-        if index == len(phone_number):
+        if index == length:
             result.append("".join(tmp))
             return
         for char in NUM_ALPHABET_MAPPING[phone_number[index]]:
@@ -28,17 +29,18 @@ def phone_mnemonic_v1(phone_number: str) -> list[str]:
     return result
 
 
-def phone_mnemonic_v2(phone_number: str) -> list[str]:
-    phone_number = [int(s) for s in phone_number.replace("-", "")]
+def phone_mnemonic_v2(phone_number_str: str) -> list[str]:
+    phone_number: list[int] = [int(s) for s in phone_number_str.replace("-", "")]
     result = []
     stack = [""]
 
     while len(stack) != 0:
         value = stack.pop()
-        if len(value) == len(phone_number):
+        length_value = len(value)
+        if length_value == len(phone_number):
             result.append(value)
             continue
-        for char in NUM_ALPHABET_MAPPING[phone_number[len(value)]]:
+        for char in NUM_ALPHABET_MAPPING[phone_number[length_value]]:
             stack.append(value + char)
     return result
 

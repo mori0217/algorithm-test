@@ -3,8 +3,8 @@ import random
 
 def in_order(numbers: list[int]) -> bool:
     # for i in range(len(numbers)-1):
-    # if numbers[i] > numbers[i+1]:
-    # return False
+    #     if numbers[i] > numbers[i+1]:
+    #         return False
     # return True
     return all([numbers[i] <= numbers[i+1] for i in range(len(numbers)-1)])
 

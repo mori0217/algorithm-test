@@ -13,7 +13,8 @@ def print_pascal(data: list[list[int]]) -> None:
         centered_line_list = [str(index).center(width, "*") for index in line]
         centered_line = "".join(centered_line_list)
         # print(centered_line)
-        print((" " * int(width/2)) * (len(data) - index), centered_line)
+        left_space = " " * int((width/2) * (len(data) - index))
+        print(left_space, centered_line)
 
 
 if __name__ == '__main__':

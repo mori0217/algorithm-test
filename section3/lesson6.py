@@ -4,7 +4,7 @@ import random
 def bubble_sort(numbers: list[int]) -> list[int]:
     length = len(numbers)
     for i in range(length):
-        for j in range(length-1 - i):
+        for j in range(length - 1 - i):
             if numbers[j] > numbers[j+1]:
                 numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
     return numbers
